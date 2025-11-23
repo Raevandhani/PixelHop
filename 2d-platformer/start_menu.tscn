@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjvon8o45cokn"]
+
+[ext_resource type="Script" uid="uid://xwvsoxm32kx5" path="res://scripts/start_menu.gd" id="1_ctwoq"]
+[ext_resource type="Texture2D" uid="uid://bgcaf05yyyxd7" path="res://assets/backgrounds/bg.png" id="2_ctwoq"]
+[ext_resource type="FontFile" uid="uid://c3ushtlklth6y" path="res://fonts/Daydream DEMO.otf" id="2_ia0g5"]
+[ext_resource type="FontFile" uid="uid://viwb2r2lx7xr" path="res://fonts/Pixel Game.otf" id="2_vpdu5"]
+[ext_resource type="Texture2D" uid="uid://dhmmr862eylsm" path="res://assets/ui/menu_button.png" id="3_v2mkm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ia0g5"]
+texture = ExtResource("2_ctwoq")
+modulate_color = Color(0.38797936, 0.38797936, 0.38797936, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ctwoq"]
+texture = ExtResource("3_v2mkm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2mkm"]
+texture = ExtResource("3_v2mkm")
+modulate_color = Color(0.86467505, 0.86467516, 0.864675, 1)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ctwoq")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ia0g5")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.99997
+offset_top = -17.0
+offset_right = 176.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vpdu5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_ctwoq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v2mkm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2mkm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ctwoq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ctwoq")
+text = "Start"
+metadata/_edit_lock_ = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vpdu5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_ctwoq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v2mkm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v2mkm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ctwoq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ctwoq")
+text = "Quit
+"
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.0
+offset_top = -216.0
+offset_right = 249.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_ia0g5")
+theme_override_font_sizes/font_size = 60
+text = "PIXEL HOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 202.0
+offset_top = 253.0
+offset_right = 692.0
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_vpdu5")
+theme_override_font_sizes/font_size = 40
+text = "beta 1.0, demo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
